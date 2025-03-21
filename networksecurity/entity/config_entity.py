@@ -76,46 +76,45 @@ class DataValidationConfig:
             )
             
             # Save the valid data
-            self.data_validation_valid_dir:str = os.path(
+            self.data_validation_valid_dir:str = os.path.join(
                 self.data_validation_dir,
                 training_pipeline.DATA_VALIDATION_VALID_DIR
             )
 
             # Saved the invalid data
-            self.data_validation_invalid_dir:str = os.path(
+            self.data_validation_invalid_dir:str = os.path.join(
                 self.data_validation_dir,
                 training_pipeline.DATA_VALIDATION_INVALID_DIR
             )
 
             # Save the train and test of Valid Data
-            self.data_valid_train_dir = os.path(
+            self.data_valid_train_dir = os.path.join(
                 self.data_validation_valid_dir,
                 training_pipeline.TRAIN_FILE_NAME
             )
 
-            self.data_valid_test_dir = os.path(
+            self.data_valid_test_dir = os.path.join(
                 self.data_validation_valid_dir,
                 training_pipeline.TEST_FILE_NAME
             )
 
             # Saves the train and test of Invalid Data
-            self.data_invalid_train_dir = os.path(
+            self.data_invalid_train_dir = os.path.join(
                 self.data_validation_invalid_dir,
                 training_pipeline.TRAIN_FILE_NAME
             )
 
-            self.data_invalid_test_dir = os.path(
+            self.data_invalid_test_dir = os.path.join(
                 self.data_validation_invalid_dir,
                 training_pipeline.TEST_FILE_NAME
             )
             
             # Saves the driifted data
-            self.data_dirft_report_dir:str = os.path(
+            self.data_dirft_report_dir:str = os.path.join(
                 self.data_validation_dir,
                 training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,
-                training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR_NAME
+                training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME
             )
-            pass
         except Exception as e:
             logger.error(e)
             raise NetworkSecurityException(e,sys)

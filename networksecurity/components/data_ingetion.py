@@ -30,6 +30,7 @@ class DataIngetion:
         except Exception as e:
             logger.error(e)
             raise NetworkSecurityException(e, sys)
+        
     def export_collecton_as_dataframe(self):
         try:
             logger.info("Export the Collection from Mongo to DataFrame")
@@ -39,7 +40,7 @@ class DataIngetion:
             collection = self.mongo_client[database_name][collection_name]
 
             df = pd.DataFrame(list(collection.find()))
-            if "-id" in df.columns:
+            if "_id" in df.columns:
                 df.drop(columns=['_id'], inplace=True)
             
             df.replace({"na":np.nan}, inplace=True)
